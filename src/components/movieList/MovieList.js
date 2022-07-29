@@ -5,7 +5,7 @@ import styles from './MovieList.module.css'
 
 export const MovieList = ({item}) => {
 
-    console.log(item, 'from MovieList')
+    // console.log(item, 'from MovieList')
     return (
         <div className={styles.listBox}>
             {

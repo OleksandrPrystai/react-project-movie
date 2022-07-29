@@ -1,13 +1,14 @@
 import React, {useEffect, useState} from "react";
 
 import {MovieList} from "../components";
-import {moviesServices} from "../services";
+import {genresServices, moviesServices} from "../services";
 import styles from './Home.module.css'
 
 
 const Home = () => {
 
     const [moviesList, setMoviesList] = useState([]);
+    // const [genresList, serGenresList] = useState([])
     const [isLoading, setIsLoading] = useState(null)
 
     const fetchMovies = async () => {
@@ -15,7 +16,7 @@ const Home = () => {
             setIsLoading(true)
             let {results, page, total_pages, total_results} = await moviesServices.getMovies();
 
-            setMoviesList(results)
+            return results
         } catch (e) {
             console.error(e)
         } finally {
@@ -23,8 +24,46 @@ const Home = () => {
         }
     }
 
+    const fetchGenres = async () => {
+        try {
+            const {genres} = await genresServices.getGenres()
+            return genres
+
+        } catch (e) {
+            console.error(e)
+        }
+    }
+
+    const fetchMoviesData = async () => {
+        const requests = [fetchMovies(), fetchGenres()];
+
+        try {
+            setIsLoading(true)
+            const [movies, genres] = await Promise.all(requests)
+
+            const mergedWhithGenresMovies = movies.map((movie) => {
+                const {genre_ids} = movie;
+
+                const movieGenresList = genre_ids.map(genreId => genres.find(el => el.id === genreId))
+
+                return {
+                    ...movie,
+                    movieGenresList,
+                }
+            })
+
+            setMoviesList(mergedWhithGenresMovies)
+
+        } catch (e) {
+            console.error(e)
+        } finally {
+            setIsLoading(false)
+        }
+    }
+
+
     useEffect(() => {
-        fetchMovies()
+        fetchMoviesData()
     }, [])
 
     const renderLoadingIndicator = () => (
@@ -34,8 +73,6 @@ const Home = () => {
     return (
         <div>
             {isLoading || isLoading === null ? renderLoadingIndicator() : <MovieList item={moviesList}/>}
-            {/*{true ? renderLoadingIndicator() : <MovieList/>}*/}
-
         </div>
     )
 }
