@@ -1,12 +1,18 @@
-import {fetchSomeData} from "./services";
+import './App.css'
 
-fetchSomeData().then(console.log )
+import React from "react";
+
+import {PageLayout} from "./layouts";
+import {Home} from "./pages";
+
+
 function App() {
-  return (
-    <div className="App">
-zcdzc
-    </div>
-  );
+
+    return (
+        <PageLayout>
+            <Home/>
+        </PageLayout>
+    );
 }
 
 export default App;

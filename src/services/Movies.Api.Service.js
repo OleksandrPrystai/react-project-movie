@@ -5,6 +5,7 @@ class MoviesServices {
         const {data} = await axiosInstance.get('/discover/movie')
         return data
     }
+
     async getMovieDetailsById(movieId) {
         const {data} = await axiosInstance.get(`/movie/${movieId}`)
         return data
@@ -12,6 +13,6 @@ class MoviesServices {
 }
 
 const moviesServices = new MoviesServices();
-const fetchSomeData = ()=> moviesServices.getMovieDetailsById(12)
+// const fetchSomeData = () => moviesServices.getMovieDetailsById()
 
-export {moviesServices,fetchSomeData}
+export {moviesServices}
