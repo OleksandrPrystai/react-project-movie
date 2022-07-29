@@ -2,7 +2,7 @@ import {axiosInstance} from "./Axios.Base";
 
 class MoviesServices {
     async getMovies() {
-        const {data} = await axiosInstance.get('/discover/movie')
+        const {data} = await axiosInstance.get('/discover/movie?language=ru')
         return data
     }
 

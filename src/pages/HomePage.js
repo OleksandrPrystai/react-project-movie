@@ -14,7 +14,7 @@ const Home = () => {
     const fetchMovies = async () => {
         try {
             setIsLoading(true)
-            let {results, page, total_pages, total_results} = await moviesServices.getMovies();
+            let {results, page, total_pages, total_results,belongs_to_collection} = await moviesServices.getMovies();
 
             return results
         } catch (e) {
@@ -51,6 +51,7 @@ const Home = () => {
                     movieGenresList,
                 }
             })
+            console.log(mergedWhithGenresMovies)
 
             setMoviesList(mergedWhithGenresMovies)
 

@@ -4,7 +4,7 @@ import styles from './MovieItem.module.css'
 
 export const MovieItem = (props) => {
 
-    const {original_title, overview, release_date, vote_average, vote_count, poster_path, movieGenresList} = props
+    const {original_title, overview, release_date, vote_average, vote_count, poster_path, movieGenresList,title} = props
 
     return (
         <div className={styles.movieItem}>
@@ -12,11 +12,11 @@ export const MovieItem = (props) => {
                 <img src={`https://image.tmdb.org/t/p/w300${poster_path}`} alt={`${original_title} poster`}/>
             </div>
             <div className={styles.movieItemDetails}>
-                <h2>{original_title}</h2>
-                <span>Rating:{vote_average} (total votes: {vote_count})</span>
+                <h2>{title}</h2>
+                <span>Рейтинг:{vote_average} (всього голосів: {vote_count})</span>
                 <span>{movieGenresList.map(({name,id})=><span key={id}>{name} {`${''}`}</span> )}</span>
                 <p>{overview}</p>
-                <span>Release date: {release_date}</span>
+                <span>Дата релізу: {release_date}</span>
             </div>
 
         </div>
