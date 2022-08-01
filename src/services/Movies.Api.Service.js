@@ -1,8 +1,11 @@
+import React from "react";
 import {axiosInstance} from "./Axios.Base";
 
+
 class MoviesServices {
-    async getMovies() {
-        const {data} = await axiosInstance.get('/discover/movie?language=ru')
+
+    async getMovies(moviesPageNumber) {
+        const {data} = await axiosInstance.get(`/discover/movie?language=ru&page=${moviesPageNumber}`)
         return data
     }
 
@@ -12,7 +15,7 @@ class MoviesServices {
     }
 }
 
+
 const moviesServices = new MoviesServices();
-// const fetchSomeData = () => moviesServices.getMovieDetailsById()
 
 export {moviesServices}

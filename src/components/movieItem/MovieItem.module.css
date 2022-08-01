@@ -3,10 +3,12 @@
     margin: 2px;
     border: 3px solid silver;
     border-radius: 5px;
+    text-decoration: none;
 }
 
 .movieItemRadius {
     display: flex;
+
 }
 
 .movieItemRadius img {
@@ -20,15 +22,18 @@
     justify-content: space-evenly;
     align-items: center;
     padding: 20px;
+
 }
 
 .movieItemDetails h2, p, span {
 
     font-family: Verdana;
+
 }
 
 .movieItemDetails span {
     margin-top: 10px;
+
 }
 
 .movieItemDetails h2 {

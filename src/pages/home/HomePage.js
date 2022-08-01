@@ -1,21 +1,23 @@
 import React, {useEffect, useState} from "react";
 
-import {MovieList} from "../components";
-import {genresServices, moviesServices} from "../services";
+import {MovieList} from "../../components";
+import {genresServices, moviesServices} from "../../services";
 import styles from './Home.module.css'
+import {useSelector} from "react-redux";
 
 
 const Home = () => {
 
     const [moviesList, setMoviesList] = useState([]);
-    // const [genresList, serGenresList] = useState([])
     const [isLoading, setIsLoading] = useState(null)
 
-    const fetchMovies = async () => {
+    const {moviesPageNumber} = useSelector(state => state.moviesAddReducer);
+
+
+    const fetchMovies = async (params) => {
         try {
             setIsLoading(true)
-            let {results, page, total_pages, total_results,belongs_to_collection} = await moviesServices.getMovies();
-
+            let {results, page, total_pages, total_results, belongs_to_collection} = await moviesServices.getMovies(params);
             return results
         } catch (e) {
             console.error(e)
@@ -23,6 +25,11 @@ const Home = () => {
             setIsLoading(false)
         }
     }
+
+    useEffect(() => {
+            fetchMovies(moviesPageNumber)
+        }, [moviesPageNumber]
+    )
 
     const fetchGenres = async () => {
         try {
@@ -40,12 +47,9 @@ const Home = () => {
         try {
             setIsLoading(true)
             const [movies, genres] = await Promise.all(requests)
-
             const mergedWhithGenresMovies = movies.map((movie) => {
                 const {genre_ids} = movie;
-
                 const movieGenresList = genre_ids.map(genreId => genres.find(el => el.id === genreId))
-
                 return {
                     ...movie,
                     movieGenresList,
@@ -62,7 +66,6 @@ const Home = () => {
         }
     }
 
-
     useEffect(() => {
         fetchMoviesData()
     }, [])
@@ -73,7 +76,8 @@ const Home = () => {
 
     return (
         <div>
-            {isLoading || isLoading === null ? renderLoadingIndicator() : <MovieList item={moviesList}/>}
+            {isLoading || isLoading === null ? renderLoadingIndicator() : <MovieList
+                item={moviesList}/>}
         </div>
     )
 }

@@ -1,1 +1,2 @@
-export * from './HomePage'
+export * from './movieDetails'
+export * from './home'
