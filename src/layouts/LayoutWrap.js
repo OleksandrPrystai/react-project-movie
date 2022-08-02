@@ -7,7 +7,9 @@ const PageLayout = ({children}) => {
         <div className={styles.globalWrapper}>
 
             <header>header data</header>
-            <main>{children}</main>
+            <main className={styles.globalWrapperMain}>{children}
+                <img src="" alt=""/>
+            </main>
             <footer>footer data</footer>
 
         </div>

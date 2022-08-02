@@ -1,8 +1,11 @@
 import React from "react";
 import {axiosInstance} from "./Axios.Base";
+import {useSelector} from "react-redux";
 
 
 class MoviesServices {
+
+
 
     async getMovies(moviesPageNumber) {
         const {data} = await axiosInstance.get(`/discover/movie?language=ru&page=${moviesPageNumber}`)

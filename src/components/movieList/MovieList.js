@@ -8,7 +8,6 @@ import {moviesAddAction} from "../../redux";
 export const MovieList = ({item}) => {
 
     const dispatch = useDispatch();
-    console.log(useSelector(state => state));
 
     return (
         <div className={styles.listBox}>
@@ -17,11 +16,8 @@ export const MovieList = ({item}) => {
                 item.map(item => <MovieItem key={item.id} {...item}/>)
             }
             <div className={styles.pageClicker}>
-                <button onClick={() => {
-                    dispatch(moviesAddAction.inc())
-                }}>inc
-                </button>
-
+                <img onClick={()=>{dispatch(moviesAddAction.dec())}} src="https://img.icons8.com/flat-round/64/000000/left--v1.png"/>
+                <img onClick={()=>{dispatch(moviesAddAction.inc())}} src="https://img.icons8.com/flat-round/64/000000/right--v1.png"/>
 
             </div>
 

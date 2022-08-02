@@ -25,9 +25,7 @@ const moviesAddSlice = createSlice({
 const {reducer: moviesAddReducer, actions: {inc, dec}} = moviesAddSlice;
 
 const moviesAddAction = {
-    inc,
-    dec,
-    // getFilms
+    inc, dec, // getFilms
 }
 
 export {moviesAddAction, moviesAddReducer}

@@ -16,12 +16,5 @@ header,footer{
     padding: 10px 20px;
     background-color: silver;
 }
-/*header{*/
-/*    background-color: indigo;*/
-/*}*/
-/*footer{*/
-/*    background-color: red;*/
-/*}*/
-/*main{*/
-/*    background-color: silver;*/
-/*}*/
+.globalWrapperMain{
+}
