@@ -10,20 +10,12 @@ const Home = () => {
 
     const [moviesList, setMoviesList] = useState([]);
     const [isLoading, setIsLoading] = useState(null)
-
     const {moviesPageNumber} = useSelector(state => state.moviesAddReducer);
-
-    useEffect(() => {
-            fetchMovies(moviesPageNumber)
-        }, [moviesPageNumber]
-    )
 
     const fetchMovies = async (params) => {
         try {
             setIsLoading(true)
-            let {
-                results, page, total_pages, total_results, belongs_to_collection
-            } = await moviesServices.getMovies(params);
+            let {results} = await moviesServices.getMovies(params);
             return results
         } catch (e) {
             console.error(e)
@@ -32,12 +24,10 @@ const Home = () => {
         }
     }
 
-
     const fetchGenres = async () => {
         try {
             const {genres} = await genresServices.getGenres()
             return genres
-
         } catch (e) {
             console.error(e)
         }
@@ -56,9 +46,7 @@ const Home = () => {
                     movieGenresList,
                 }
             })
-
             setMoviesList(mergedWhithGenresMovies)
-
         } catch (e) {
             console.error(e)
         } finally {
@@ -75,9 +63,8 @@ const Home = () => {
     )
 
     return (
-        <div>
-            {isLoading || isLoading === null ? renderLoadingIndicator() : <MovieList
-                item={moviesList}/>}
+        <div className={styles.homePage}>
+            {isLoading || isLoading === null ? renderLoadingIndicator() : <MovieList item={moviesList}/>}
         </div>
     )
 }

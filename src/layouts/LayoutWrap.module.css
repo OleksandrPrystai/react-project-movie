@@ -1,20 +1,41 @@
-body{
+body {
     margin: 0;
 }
+
 .globalWrapper {
     height: 100vh;
     display: flex;
     flex-direction: column;
 }
-main{
+
+main {
     flex: 1;
     padding: 20px;
     position: relative;
-    overflow-y: auto ;
+    overflow-y: auto;
 }
-header,footer{
-    padding: 10px 20px;
-    background-color: silver;
+
+.globalWrapperMain {
+    background: url("https://prod-ripcut-delivery.disney-plus.net/v1/variant/disney/DA2E198288BFCA56AB53340211B38DE7134E40E4521EDCAFE6FFB8CD69250DE9/scale?format=jpeg");
+    height: 100vh;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
 }
-.globalWrapperMain{
+.globalWrapperHeader{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin: 0;
+    border: 3px solid #252525 ;
+    background-color: #343434;
+}
+.globalWrapperHeader img {
+    margin: 0;
+    width: 38px;
+}
+.globalWrapperHeader h1 {
+    margin: 0;
+    color: #cfcfcf;
+   font-size: 25px;
 }

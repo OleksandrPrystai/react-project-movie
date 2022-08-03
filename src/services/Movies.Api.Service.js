@@ -1,11 +1,7 @@
-import React from "react";
 import {axiosInstance} from "./Axios.Base";
-import {useSelector} from "react-redux";
 
 
 class MoviesServices {
-
-
 
     async getMovies(moviesPageNumber) {
         const {data} = await axiosInstance.get(`/discover/movie?language=ru&page=${moviesPageNumber}`)
@@ -13,11 +9,10 @@ class MoviesServices {
     }
 
     async getMovieDetailsById(movieId) {
-        const {data} = await axiosInstance.get(`/movie/${movieId}`)
+        const {data} = await axiosInstance.get(`/movie/${movieId}/videos`)
         return data
     }
 }
-
 
 const moviesServices = new MoviesServices();
 
