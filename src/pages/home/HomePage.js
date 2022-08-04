@@ -1,9 +1,10 @@
 import React, {useEffect, useState} from "react";
+import {useSelector} from "react-redux";
 
 import {MovieList} from "../../components";
 import {genresServices, moviesServices} from "../../services";
 import styles from './Home.module.css'
-import {useSelector} from "react-redux";
+
 
 
 const Home = () => {

@@ -14,9 +14,8 @@ export const MovieList = ({item}) => {
         <div className={styles.listBox}>
             {item.map(item => <div key={item.id}><MovieItem {...item}/></div>)}
 
-            <div className={styles.pageClicker}><img onClick={() => {
-                dispatch(moviesAddAction.dec())
-            }} src="https://img.icons8.com/flat-round/64/000000/left--v1.png" alt=""/>
+            <div className={styles.pageClicker}>
+                <img onClick={() => {dispatch(moviesAddAction.dec())}} src="https://img.icons8.com/flat-round/64/000000/left--v1.png" alt=""/>
                 <div className={styles.pageClickerNumber}>
                     {moviesPageNumber}
                 </div>

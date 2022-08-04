@@ -1,0 +1,53 @@
+.detailsContainer{
+    width: 1000px;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 50px;
+    border: 3px solid #252525 ;
+    background-color: #343434;
+}
+.filmName h1{
+    margin-top: 5px;
+    color: #cfcfcf;
+    padding-left: 10px;
+
+}
+.filmName h3{
+    margin: 0;
+    color: #828282;
+    padding-left: 10px;
+}
+.allInfo{
+    margin-top: 20px;
+    display: flex;
+    padding-left: 10px;
+}
+.allDetails{
+    color: #cfcfcf;
+    margin-left: 30px;
+}
+.allDetails h3{
+    letter-spacing: 1px;
+}
+.overview h2{
+    color: #cfcfcf;
+    margin-left: 10px;
+}
+.overview p{
+    color: #cfcfcf;
+    margin-left: 10px;
+    margin-right: 10px;
+    font-size: 18px;
+}
+.video{
+    margin-top: 30px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 30px;
+}
+.poster img {
+    width: 260px;
+}

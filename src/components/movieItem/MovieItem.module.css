@@ -1,8 +1,8 @@
 .movieItem {
     display: flex;
-    border: 3px solid #252525 ;
+    border: 3px solid #252525;
     border-radius: 5px;
-    background-color: #343434 ;
+    background-color: #343434;
     color: #cfcfcf;
     text-decoration: none;
 
@@ -24,7 +24,7 @@
     align-items: center;
     padding: 20px;
     margin-left: auto;
-    margin-right:auto;
+    margin-right: auto;
 
 }
 
@@ -42,3 +42,15 @@
 .movieItemDetails h2 {
     margin-bottom: 20px;
 }
+
+a {
+    text-decoration: none;
+}
+
+.linkStyle a :hover {
+    color: wheat;
+    text-shadow: 0 0 1px darkorange;
+
+
+}
+

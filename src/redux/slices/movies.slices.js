@@ -13,7 +13,11 @@ const moviesAddSlice = createSlice({
             ++state.moviesPageNumber
         },
         dec: (state, action) => {
-            --state.moviesPageNumber
+            if (state.moviesPageNumber > 1){
+                --state.moviesPageNumber
+            }else {
+                state.moviesPageNumber = 1
+            }
         },
         // getFilms:((state, action) => {
         //    state.films = [...state.films, ...action.payload]
