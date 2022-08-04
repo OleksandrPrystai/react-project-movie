@@ -3,14 +3,12 @@ import {useParams} from "react-router-dom";
 
 import {moviesServices} from "../../services";
 import styles from './MovieDetails.module.css'
-// import MoviePopular from "../popular/MoviePopular";
 
 const MovieDetails = () => {
 
     const {id} = useParams();
     const [films, setFilms] = useState([]);
     const [details, setDetails] = useState([])
-    console.log(details)
 
     const {title, original_title, vote_average, release_date, runtime, genres, overview, poster_path, production_countries} = details
     const fetchDetails = async () => {
@@ -39,8 +37,6 @@ const MovieDetails = () => {
     useEffect(() => {
         fetchTrailer()
     }, [])
-
-
 
     return (
         <div>
